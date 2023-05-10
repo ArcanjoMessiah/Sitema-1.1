@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `db_sistema1.0`.`produto` (
   `quantidade` INT(15) NULL DEFAULT NULL,
   `descricao` VARCHAR(300) NULL DEFAULT NULL,
   `datavalidade` DATE NULL DEFAULT NULL,
-  `preco` VARCHAR(20) NOT NULL,
+  `preco` DECIMAL(10,2) NOT NULL;,
   `tipo` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`idproduto`))
 ENGINE = InnoDB

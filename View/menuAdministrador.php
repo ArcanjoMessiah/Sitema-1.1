@@ -28,7 +28,7 @@ include_once '../webcomplementes.html';
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="listarAllCliente.php" target="centro">Listar Clientes</a>
                         <a class="dropdown-item" href="../view/formCadastrarCliente.php" target="centro">Cadastrar Cliente</a>
-                        <a class="dropdown-item" href="../view/pesquisaCliente.php" target="centro">Pesquisar Cliente</a>
+                       
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -38,7 +38,7 @@ include_once '../webcomplementes.html';
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="listarAllUsuario.php" target="centro">Listar Usuários</a>
                         <a class="dropdown-item" href="formCadastroUsuario.php" target="centro">Cadastrar Usuário</a>
-                        <a class="dropdown-item" href="buscarUsuariobyId.php" target="centro">Pesquisar Usuário</a>
+                       
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -48,7 +48,7 @@ include_once '../webcomplementes.html';
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../view/listarAllProduto.php" target="centro">Listar Produtos</a>
                         <a class="dropdown-item" href="../view/formCadastrarProduto.php" target="centro">Cadastrar Produtos</a>
-                        <a class="dropdown-item" href="pesquisarProduto.php" target="centro">Buscar Produto </a>
+                        
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -56,7 +56,7 @@ include_once '../webcomplementes.html';
                         Pedidos
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../view/listarAllProduto.php" target="centro">Listar Pedidso</a>
+                        <a class="dropdown-item" href="../view/listarAllPedidos.php" target="centro">Listar Pedidos</a>
                         
                     </div>
                 </li>

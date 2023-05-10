@@ -9,6 +9,9 @@ session_start()
         <title>Cliente</title>
     </head>
     <body>
+        <form id='formComprar' action='../controller/compraClienteController.php' method='post'>
+            <input type='hidden' name='produtos' id='produtos'>
+        </form>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark  fixed-top">
             <!-- Brand/logo -->
             <a class="navbar-brand" href="#">
@@ -39,16 +42,17 @@ session_start()
                         Produtos
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="listarAllProduto_1.php" target="centro">Listar Produtos</a>
-                        <a class="dropdown-item" href="pesquisarProduto.php" target="centro">Buscar Produto </a>
+                        <a class="dropdown-item" href="listarAllProdutoCliente.php" target="centro">Listar Produtos</a>
+                        
                     </div>
                      </li>
                      <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                        Carrinho
-                    </a>   
-                        <a class = "dropdown-item" href = "carrinho.php?idusuario=<?php echo $_SESSION["idusuario"];?>" target = "centro">Meu Carrinho</a>
-                        <a class="dropdown-item" href="pesquisarPedidos.php" target="centro">Consultar pedidos</a>
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                            Carrinho
+                        </a>
+                        <div class="dropdown-menu dropbox-custom" id="pedido-list">
+                            Não há produtos no seu carrinho 😢
+                        </div>
                      </li>
                     </div>
                 </li>
@@ -67,11 +71,56 @@ session_start()
                 </li>
             </ul>
         </nav>
-        <br>
-        <script>
+        
+<script>
+
+
+            if (window.addEventListener) {
+                window.addEventListener("storage", buscarItems, false);
+            } else {
+                window.attachEvent("onstorage", buscarItems);
+            };
+
+            function comprar() {
+                $('#formComprar').submit();
+            }
+
+
+            function buscarItems() {
+                let listaCompras = window.localStorage.getItem('lista');
+                let apresentaLista = "";
+                if(listaCompras !== "") {
+                    listaCompras = JSON.parse(listaCompras);
+                    $('#produtos').val('');
+                }
+                if(listaCompras.length > 0) {
+                    listaCompras.map(function(item, index) {
+                        apresentaLista += item.quantidade + "x " + item.nome + " - <a onClick='removerItem("+ index +")' class='link-menu'>remover<a/><br/>";
+                        let betweenValues = '';
+                        if(index !== 0) betweenValues = '-';
+                        $('#produtos').val($('#produtos').val() + betweenValues + JSON.stringify(item));
+                        if(listaCompras.length === (index + 1)) {
+                            apresentaLista += "<br><a class='link-menu' onClick='comprar()'>Finalizar Compra<a/>";
+                            $("#pedido-list").html(apresentaLista);
+                        }
+                    });
+                }else{
+                    $('#produtos').val('');
+                    $("#pedido-list").html("Não há produtos no seu carrinho 😢")
+                }
+            }
+
             $(document).ready(function () {
-                $('[data-toggle="tooltip"]').tooltip();
+                buscarItems();
             });
-        </script>
+
+            function removerItem(item) {
+                let listaCompras = window.localStorage.getItem('lista');
+                listaCompras = JSON.parse(listaCompras)
+                listaCompras.splice(item, 1);
+                window.localStorage.setItem('lista', JSON.stringify(listaCompras));
+                buscarItems();
+            }
+</script>
     </body>
 </html>

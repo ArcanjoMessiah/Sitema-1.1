@@ -32,23 +32,13 @@
                     ?>
                     <br>
                 </td>
-<!--                <td align="right" width="15%">
-                    <?php
-//                    if (isset($_SESSION["usuario"])) {
-//                        echo "Usuário logado: ", $_SESSION["usuario"];
-//                        echo "<br>";
-//                        echo "Perfil: ", $_SESSION["perfil"];
-//                    }
-                    ?>
-                    <br>
-                    <a href="../controller/logoffController.php">sair</a>
-                </td>-->
+
             </tr>
         </table>
         <table id="tablehome" border='1'>
             <tr>         
                 <td>
-                    <iframe name="centro" src="" width="100%" height="100%" frameborder="0"></iframe>
+                    <iframe name="centro" src="centro.php" width="100%" height="100%" frameborder="0"></iframe>
                 </td>
             </tr>                
         </table>

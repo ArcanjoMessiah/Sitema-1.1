@@ -145,24 +145,66 @@ class usuarioDAO {
         }
     }
 //SELECIONAR CLIENTE PELA ID
-    public function getClienteSerch() {
-        try {
-            $sql = "SELECT * FROM usuario WHERE usuario= ? || cpf=? || rg= ? || datanascimento = ? || email=? || sexo=? || telefone=?";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindValue(1, $usuario);
-            $stmt->bindValue(2, $cpf);
-            $stmt->bindValue(3, $rg);
-            $stmt->bindValue(4, $datanascimento);
-            $stmt->bindValue(5, $email);
-            $stmt->bindValue(6, $sexo);
-            $stmt->bindValue(7, $telefone);
-            $stmt->execute();
-            $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $cliente;
-        } catch (PDOException $exc) {
-            echo $exc->getMessage();
+public function getClienteSearch($usuario=null, $cpf=null, $rg=null, $datanascimento=null, $email=null, $sexo=null, $telefone=null) {
+    try {
+        $filtros = [];
+        $sql = "SELECT * FROM usuario WHERE ";
+        if ($usuario !== null) {
+            $filtros[] = "usuario = ?";
         }
+        if ($cpf !== null) {
+            $filtros[] = "cpf = ?";
+        }
+        if ($rg !== null) {
+            $filtros[] = "rg = ?";
+        }
+        if ($datanascimento !== null) {
+            $filtros[] = "datanascimento = ?";
+        }
+        if ($email !== null) {
+            $filtros[] = "email = ?";
+        }
+        if ($sexo !== null) {
+            $filtros[] = "sexo = ?";
+        }
+        if ($telefone !== null) {
+            $filtros[] = "telefone = ?";
+        }
+
+        $sql .= implode(' OR ', $filtros);
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $i = 1;
+        if ($usuario !== null) {
+            $stmt->bindValue($i++, $usuario);
+        }
+        if ($cpf !== null) {
+            $stmt->bindValue($i++, $cpf);
+        }
+        if ($rg !== null) {
+            $stmt->bindValue($i++, $rg);
+        }
+        if ($datanascimento !== null) {
+            $stmt->bindValue($i++, $datanascimento);
+        }
+        if ($email !== null) {
+            $stmt->bindValue($i++, $email);
+        }
+        if ($sexo !== null) {
+            $stmt->bindValue($i++, $sexo);
+        }
+        if ($telefone !== null) {
+            $stmt->bindValue($i++, $telefone);
+        }
+
+        $stmt->execute();
+        $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $cliente;
+    } catch (PDOException $exc) {
+        echo $exc->getMessage();
     }
+}
 //ATUALIZAR CLIENTE
     public function updateClienteById(usuarioDTO $usuarioDTO) {
         try {

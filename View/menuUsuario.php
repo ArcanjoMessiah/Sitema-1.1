@@ -32,7 +32,7 @@ include_once '../webcomplementes.html';
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../View/listarAllCliente.php" target="centro">Listar Cliente</a>
                         <a class="dropdown-item" href="../view/formCadastrarCliente.php" target="centro">Cadastrar Cliente</a>
-                        <a class="dropdown-item" href="../view/pesquisaCliente.php" target="centro">Pesquisar Cliente</a>
+                        
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -59,7 +59,7 @@ include_once '../webcomplementes.html';
                         Pedidos
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../view/listarAllProduto.php" target="centro">Listar Pedidso</a>
+                        <a class="dropdown-item" href="../view/listarAllPedidos.php" target="centro">Listar Pedidos</a>
                         
                     </div>
                 </li>

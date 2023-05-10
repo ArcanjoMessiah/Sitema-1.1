@@ -35,7 +35,7 @@ include_once '../webcomplementes.html';
                             <label for="quantidade">Quantidade:</label>
                             <input type="number" name="quantidade" id="quantidade" class="form-control col-6" value="<?php echo $produto["quantidade"] ?>">
                             <label for="preco">Preço do produto: </label>
-                            <input type="text" name="preco" id="preco" class= "form-control col-5 dinheiro" value="<?php echo $produto["preco"] ?>"> 
+                            <input type="text" name="preco" id="preco" class= "form-control col-5 dinheiro" aria-label="Quantia" value="<?php echo $produto["preco"] ?>"> 
                         
                     </div>
                         </div>

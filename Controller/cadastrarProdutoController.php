@@ -11,6 +11,9 @@ $datavalidade = $_POST["datavalidade"];
 $preco = $_POST["preco"];
 $tipo = $_POST["tipo"];
 
+$preco = str_replace('R$', '', $preco);
+$preco = str_replace(',', '.', $preco);
+
 $produtoDTO = new ProdutoDTO();
 $produtoDTO->setNome($nome);
 $produtoDTO->setCategoria($categoria);

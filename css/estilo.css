@@ -69,3 +69,16 @@ footer
     border-radius: 20px;
     width:30%;
 }
+.dropbox-custom {
+    padding: 20px !important;
+    width: max-content;
+}
+
+.link-menu {
+    text-decoration: none;
+}
+
+.link-menu:hover {
+    text-decoration: underline !important;
+    cursor: pointer;
+}

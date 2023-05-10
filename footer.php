@@ -20,10 +20,10 @@
             }
         </style>
     </head>
-    <body>
+    <body style="background-color:  mistyrose">
         <div class="footer">
             <p>
-                Sistema MBO 1.0 &COPY; 2019 - <?php
+                Mercardo de Bairro Online - MBO 1.1 &COPY; 2020 - <?php
                 $date = date("Y");
                 echo " $date";
                 ?>

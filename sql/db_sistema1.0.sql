@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `quantidade` varchar(45) NOT NULL,
   `descrição` varchar(300) NOT NULL,
   `datavalidade` date NULL DEFAULT NULL,
-  `preco` int(15)  not NULL,
+  `preco` DECIMAL(10,2) NOT NULL;,
   `tipo` varchar(20)  not NULL,
   PRIMARY KEY (`idproduto`),
 

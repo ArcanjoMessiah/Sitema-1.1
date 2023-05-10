@@ -76,8 +76,7 @@ if ($perfil == 3) {
                         
 //Para cada checkbox selecionado
                     foreach($check as $item){
-                        $produtos = $item;
-                        
+                        $produtos = $item;           
 
                         
                         foreach ($produtos as $p) {
@@ -93,8 +92,10 @@ if ($perfil == 3) {
                             echo "  <td>{$p["descricao"]}</td>";
                             echo "  <td><input type='number' class='form-control col-3' name='quantidade' value='{$p["quantidade"]}'></td>";
                             echo "  <td class= 'dinheiro'>$preço</td> ";                            
+                            echo "</tr>";                            
+                            echo "<tr>";
+                            echo "<td cowsplan='3' ><input type='number' class='form-control' name='total' value='$total'> </td>";
                             echo "</tr>";
-                            
                         }
                     }
                        

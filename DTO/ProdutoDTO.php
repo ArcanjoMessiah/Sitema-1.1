@@ -12,7 +12,7 @@ class ProdutoDTO {
     private $preco; 
     private $tipo; 
     
-    public function getidproduto() {
+    public function getIdproduto() {
         return $this->idproduto;
     }
 

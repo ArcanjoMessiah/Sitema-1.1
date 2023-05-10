@@ -56,7 +56,7 @@ include_once '../webcomplementes.html';
                             echo "  <td>{$p["categoria"]}</td>";
                             echo "  <td>{$p["quantidade"]}</td>";
                             echo "  <td>{$p["descricao"]}</td>";
-                            echo "  <td class= 'dinheiro'>R$ {$p["preco"]}</td> ";
+                            echo "  <td>R$ {$p["preco"]}</td> ";
                             echo "  <td>{$p["datavalidade"]}</td>";
                             echo "  <td>{$p["tipo"]}</td>";
                             echo "  <td class='text-center'><a href='../view/formAlterarProduto.php?id={$p["idproduto"]}' data-toggle='tooltip' data-placement='top' title='Editar Produto!' onclick=\"return confirm('Tem certeza que deseja Editar  o Produto!: {$p["nome"]}'); return false;\" ><i class='fas fa-user-edit text-dark'></i></a></td>";

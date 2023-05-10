@@ -14,8 +14,7 @@ include_once '../webcomplementes.html';
                 <br>
                 <div class="card bg-dark text-white font-weight-bold text-center">
                     <div class="card-body">Cadastro de Usuário</div>
-                </div>
-                <br>
+                </div>                
                 <div class="card-group">
                     <div class="card bg-dark">
                         <div class="card-body text-white">

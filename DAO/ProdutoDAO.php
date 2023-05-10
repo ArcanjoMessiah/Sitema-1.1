@@ -32,7 +32,7 @@ class ProdutoDAO {
             $sql = "INSERT INTO produto (idproduto,nome,categoria,quantidade,descricao,datavalidade,preco,tipo) 
                     VALUES (?,?,?,?,?,?,?,?)";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindValue(1, $produtoDTO->getidproduto());
+            $stmt->bindValue(1, $produtoDTO->getIdproduto());
             $stmt->bindValue(2, $produtoDTO->getNome());
             $stmt->bindValue(3, $produtoDTO->getCategoria());
             $stmt->bindValue(4, $produtoDTO->getQuantidade());
@@ -50,7 +50,7 @@ class ProdutoDAO {
             $sql = "DELETE FROM produto 
                    WHERE idproduto = ?";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindValue(1,$idproduto);
+            $stmt->bindValue(1,$idproduto->set);
             $stmt->execute();
         } catch (PDOException $exc) {
             echo $exc->getMessage();

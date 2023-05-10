@@ -45,16 +45,6 @@ if ($perfil == 3) {
                   
                 ?>
             
-                <div class="card bg-dark text-white text-center font-weight-bold">
-                    <div class="card-body">
-                        Lista de Produtos
-                        <a href="carrinho.php" target="centro" class="btn btn-light btn-sm float-right"
-                           data-toggle='tooltip' data-placement='left' title='Acessar meu carrinho'>
-                            Carrinho <i class="fas fa-cart-arrow-down" data-toggle='tooltip' data-placement='top' title='Meu Carrinho'></i>
-                        </a>
-                    </div>
-                </div>
-                <br>
                 <form class="forma-control form-group" action="carrinho.php" method="post">
                 <table class="table table-borderless table-hover">
                     <thead class="thead-dark text-uppercase">
@@ -66,20 +56,16 @@ if ($perfil == 3) {
                             <th>Selecionar</th>
                         </tr>
                     </thead>
-                    <button type="submit" class="btn btn-success float-right" data-toggle='tooltip' data-placement='top' title='Adicionar produtos selecionados ao carrinho '>Adicionar ao carrinho</button>
                     <tbody>
                         <?php
                         foreach ($produtos as $p) {
                         $produto= $p["idproduto"];  
-                        
                             echo "<tr>";
                             echo "  <td>{$p["nome"]}</td>";
                             echo "  <td>{$p["descricao"]}</td>";
-                            echo "  <td><input type='number' class='form-control form-group col-3' name='quantidade' value='1'> </td>";
-                            echo "  <td class= 'dinheiro'>{$p["preco"]}</td> ";
-                            
-                            echo "  <td class='text-center'>
-    <input type='checkbox' class='custom-control-input custom-checkbox' id='check' name='item[]' value='$produto'><label class='custom-control-label' for='check'> </td>";
+                            echo "  <td><input type='number' class='form-control form-group col-4' id='quantidade". $produto ."' name='quantidade' value='0'> </td>";
+                            echo "  <td > R$ {$p["preco"]}</td> ";                            
+                            echo "  <td class='text-center'>  <input type='checkbox' class='custom-control-input custom-checkbox' id='check". $produto ."' name='item[]' value='{\"id\": $produto, \"nome\": \"". $p["nome"] ."\", \"preco\": \"". $p["preco"] ."\"}'><label class='custom-control-label' for='check". $produto ."'> </td>";
                             echo "</tr>";                           
                            
                         }
@@ -87,14 +73,53 @@ if ($perfil == 3) {
                         
                     </tbody>
                 </table>
-                    <button type="submit" class="btn btn-success float-right" data-toggle='tooltip' data-placement='top' title='Adicionar produtos selecionados ao carrinho '>Adicionar ao carrinho</button>
+                    <button  id="wishlist" type="button" class="btn btn-success float-right" data-toggle='tooltip' data-placement='top' title='Adicionar produtos selecionados ao carrinho '>Adicionar ao carrinho <i class="fas fa-cart-arrow-down" data-toggle='tooltip' data-placement='top' title='Meu Carrinho'></i></button>
         </form>
         </div>
+
+        <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Opa!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Produto adicionado com sucesso!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="button-ok" class="btn btn-primary">Ok</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
         <script>
             $(document).ready(function () {
-                $('[data-toggle="tooltip"]').tooltip();
                 $(".dinheiro").maskMoney();
             });
+
+            $('#wishlist').click((val) => {
+                const lista = [];
+                $('input[type=checkbox]').each(function(index, element) {
+                    if(element.checked) {
+                        let produto = JSON.parse(element.value);
+                        produto.quantidade = $('#quantidade' + produto.id).val();
+                        lista.push(produto);
+                    }
+                })
+                window.localStorage.setItem('lista', JSON.stringify(lista));
+                $(".modal").show();
+            });
+
+            $("#button-ok").click(function() {
+                $(".modal").hide();
+                window.location.href ="../View/principal.php"; // Redireciona para a página principal.php            
+            })
         </script>
     </body>
 </html>
+

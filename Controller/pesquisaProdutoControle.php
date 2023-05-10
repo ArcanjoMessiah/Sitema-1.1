@@ -5,8 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-require_once '../dto/usuarioDTO.php';
-require_once '../dao/usuarioDAO.php';
+require_once '../dto/produtoDTO.php';
+require_once '../dao/produtoDAO.php';
 
 // recuperei os dados do formulario
 
