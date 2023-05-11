@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `db_sistema1.0`.`produto` (
   PRIMARY KEY (`idproduto`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 13
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `db_sistema1.0`.`perfil` (
   PRIMARY KEY (`idperfil`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `db_sistema1.0`.`usuario` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 15
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------

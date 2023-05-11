@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   `turma` varchar(20) NOT NULL,
   `turno` varchar(20) NOT NULL,
   PRIMARY KEY (`idaluno`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `telefone` varchar(15) DEFAULT NULL,
   `dataadmissao` date DEFAULT NULL,
   PRIMARY KEY (`idfuncionario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `idperfil` int(11) NOT NULL AUTO_INCREMENT,
   `perfil` varchar(45) NOT NULL,
   PRIMARY KEY (`idperfil`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `perfil`
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `sexo` int(2) NOT NULL,
   PRIMARY KEY (`idusuario`),
   KEY `fk_usuario_perfil_idx` (`perfil_idperfil`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   PRIMARY KEY (`idproduto`),
 
   
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `db_sistema1.0`.`cliente_produto` (
   `cliente_idcliente` INT(11) NOT NULL,
@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `db_sistema1.0`.`produto` (
   PRIMARY KEY (`idproduto`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 15
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `db_sistema1.0`.`perfil` (
   PRIMARY KEY (`idperfil`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `db_sistema1.0`.`usuario` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 36
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
